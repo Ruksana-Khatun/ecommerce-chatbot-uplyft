@@ -1,5 +1,5 @@
 # E-Commerce Clothing Chatbot
-# This is a full-stack chatbot web application that helps users explore **clothing products** by chatting, like: Show me clothes under ₹100; "Show me clothes under ₹1000"
+# This is a full-stack chatbot web application that helps users explore **clothing products** by chatting, like: Show me clothes under ₹100; 
 
 
 # i have used Technologies for backend
@@ -13,4 +13,4 @@
 # bcryptjs for password hashing
 # dotenv for  environment variables like Mongo URI
 # morgan for log all api in terminal
-
+# i am facing issue in routes controllers beacues of packege json file  
