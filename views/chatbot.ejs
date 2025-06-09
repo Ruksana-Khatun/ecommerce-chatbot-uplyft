@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chat with our Bot</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f9f9f9;
+    }
+    h1 {
+      color: #333;
+    }
+    #chatbox {
+      border: 1px solid #ccc;
+      padding: 15px;
+      width: 500px;
+      height: 300px;
+      overflow-y: scroll;
+      background-color: white;
+      margin-bottom: 10px;
+    }
+    #userInput {
+      width: 400px;
+      padding: 10px;
+    }
+    #sendBtn {
+      padding: 10px 15px;
+    }
+    .message {
+      margin: 5px 0;
+    }
+    .user { color: blue; }
+    .bot { color: green; }
+  </style>
+</head>
+<body>
+  <h1>Chat with our Bot</h1>
+
+  <div id="chatbox">
+    <div class="message user"><strong>You:</strong> show me kurti under 3000</div>
+  </div>
+
+  <input type="text" id="userInput" placeholder="Type your message..." />
+  <button id="sendBtn" onclick="sendMessage()">Send</button>
+
+  <script>
+    function sendMessage() {
+      const input = document.getElementById('userInput');
+      const chatbox = document.getElementById('chatbox');
+      const message = input.value;
+
+      if (message.trim() === '') return;
+
+      chatbox.innerHTML += `<div class="message user"><strong>You:</strong> ${message}</div>`;
+      input.value = '';
+      chatbox.scrollTop = chatbox.scrollHeight;
+
+      // Simulated bot reply
+      setTimeout(() => {
+        chatbox.innerHTML += `<div class="message bot"><strong>Bot:</strong> Searching for "${message}"...</div>`;
+        chatbox.scrollTop = chatbox.scrollHeight;
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
