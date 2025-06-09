@@ -6,19 +6,24 @@ const dotenv = require('dotenv');
 dotenv.config();
 const mongoose = require('mongoose');
 const PORT=3000;
-const userMiddleware = require('./middleware/userMiddleware')
-const userRoutes = require('./routes/user.routes');
 
 // middleware
-app.use(express.static(path.join(__dirname,'public')));
+app.use(express.static(path.join(__dirname, 'views')));
+app.set('view engine', 'ejs');
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use((morgan('dev')));
 
+const userMiddleware = require('./middleware/userMiddleware')
+const userRoutes = require('./routes/user.routes');
+const chatbotRoutes = require('./routes/chatbot.routes');
+
 // routes
 app.use("/api/user",userRoutes);
-// app.use('/chatbot',chatbot);
-
+ app.use("/api/chatbot",chatbotRoutes);
+app.get('/chatbot', (req, res) => {
+  res.render('chatbot.ejs'); // serves chatbot.ejs
+});
 
 app.get('/ruksana',(req,es)=>{
     es.send("hi hello how ae you")
